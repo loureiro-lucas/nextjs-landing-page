@@ -57,6 +57,7 @@ export const HomeBanner = () => {
                             alt="Page Banner"
                             objectFit="cover"
                             className="mx-auto"
+                            priority
                         />
                     </div>
                 </MotionBTTContainer>
