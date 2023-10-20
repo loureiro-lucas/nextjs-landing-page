@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs");
 
 const nextConfig = {
+    output: 'export',
     reactStrictMode: true,
     experimental: {
         appDir: true
@@ -13,6 +14,7 @@ const nextConfig = {
         includePaths: [path.join(__dirname, "styles")]
     },
     images: {
+        unoptimized: true,
         formats: ["image/avif", "image/webp"],
         domains: ["s.gravatar.com"]
     },
@@ -24,21 +26,21 @@ const nextConfig = {
         siteImagePreviewUrl: "/images/preview.jpeg",
         twitterHandle: "@your_handle"
     },
-    headers() {
-        return [
-            {
-                source: "/(.*)",
-                headers: [
-                    ...createSecureHeaders(),
-                    // HSTS Preload: https://hstspreload.org/
-                    {
-                        key: "Strict-Transport-Security",
-                        value: "max-age=63072000; includeSubDomains; preload"
-                    }
-                ]
-            }
-        ];
-    }
+    // headers() {
+    //     return [
+    //         {
+    //             source: "/(.*)",
+    //             headers: [
+    //                 ...createSecureHeaders(),
+    //                 // HSTS Preload: https://hstspreload.org/
+    //                 {
+    //                     key: "Strict-Transport-Security",
+    //                     value: "max-age=63072000; includeSubDomains; preload"
+    //                 }
+    //             ]
+    //         }
+    //     ];
+    // }
 };
 
 module.exports = nextConfig;
